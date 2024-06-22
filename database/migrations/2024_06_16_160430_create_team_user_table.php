@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('team_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('team_id');
-            $table->foreignId('user_id');
+            $table->foreignUlid('team_id');
+            $table->foreignUlid('user_id');
             $table->string('role')->nullable();
             $table->timestamps();
 
