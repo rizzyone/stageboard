@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\BoardCollection;
 use App\Services\BoardService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class BoardController extends Controller
 {
@@ -15,9 +19,13 @@ class BoardController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
-        //
+        $boards = $this->boardService->listByUser(Auth::user());
+
+        return Inertia::render('Home', [
+            'boards' => new BoardCollection($boards),
+        ]);
     }
 
     /**
