@@ -15,6 +15,7 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->string('name', 32);
             $table->text('description');
+            $table->boolean('is_public')->default(false);
             $table->foreignUlid('user_id')->constrained('users');
             $table->timestamps();
             $table->softDeletes();

@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $id
  * @property string $name
  * @property string $description
+ * @property bool $is_public
  * @property string $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -26,6 +27,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Board whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Board whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Board whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Board whereIsPublic($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Board whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Board whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Board whereUserId($value)
