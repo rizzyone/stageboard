@@ -2,11 +2,17 @@
 
 namespace App\Providers;
 
+use App\Services\BoardService;
+use App\Services\Internal\BoardServiceImpl;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    public $singletons = [
+        BoardService::class => BoardServiceImpl::class,
+    ];
+
     /**
      * Register any application services.
      */
