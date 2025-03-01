@@ -112,6 +112,21 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'telescope' => [
+            'driver' => 'pgsql',
+            'url' => env('TELESCOPE_DB_URL'),
+            'host' => env('TELESCOPE_DB_HOST', '127.0.0.1'),
+            'port' => env('TELESCOPE_DB_PORT', '5432'),
+            'database' => env('TELESCOPE_DB_DATABASE', 'laravel'),
+            'username' => env('TELESCOPE_DB_USERNAME', 'root'),
+            'password' => env('TELESCOPE_DB_PASSWORD', ''),
+            'charset' => env('TELESCOPE_DB_CHARSET', 'utf8'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'search_path' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
     ],
 
     /*
