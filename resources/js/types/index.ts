@@ -1,4 +1,5 @@
 import { LucideIcon } from 'lucide-react';
+import { SvgIcon } from '@mui/material';
 
 export interface Auth {
   user: User;
@@ -17,7 +18,7 @@ export interface NavGroup {
 export interface NavItem {
   title: string;
   url: string;
-  icon?: LucideIcon | null;
+  icon?: LucideIcon | typeof SvgIcon | null;
   isActive?: boolean;
 }
 
