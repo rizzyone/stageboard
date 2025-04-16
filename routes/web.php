@@ -13,7 +13,7 @@ Route::middleware(['auth'])->group(function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
 
-    Route::resource('projects', ProjectController::class);
+    Route::resource('projects', ProjectController::class)->except(['create']);
 });
 
 require __DIR__.'/settings.php';
