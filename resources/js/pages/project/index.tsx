@@ -4,10 +4,11 @@ import Box from "@mui/material/Box";
 import Stack from '@mui/material/Stack';
 import Grid from "@mui/material/Grid";
 import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import { router } from "@inertiajs/react";
@@ -51,9 +52,19 @@ export default function Index({ projects }: IndexProps) {
         >
           {projects.map((project) => (
             <Grid key={project.id} size={{ xs: 1 }}>
-              <Card sx={{ height: '10rem', display: 'flex', flexDirection: 'column' }}>
-                <Box sx={{ height: '0.5rem', backgroundColor: project.color_hex }} />
-                <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <Card sx={{ display: 'flex', flexDirection: 'column' }}>
+                <CardActionArea onClick={() => router.get(route('projects.show', project.id))}>
+                  <Box sx={{ height: '0.5rem', backgroundColor: project.color_hex }} />
+                  {project.picture ? (
+                    <CardMedia
+                      component="img"
+                      image={`/storage/projects/${project.picture}`}
+                      alt={project.name}
+                      sx={{ height: '8rem' }}
+                    />
+                  ) : (
+                    <Box sx={{ height: '8rem', backgroundColor: project.color_hex }} />
+                  )}
                   <CardContent>
                     <Typography
                       gutterBottom
@@ -87,16 +98,7 @@ export default function Index({ projects }: IndexProps) {
                       {project.description}
                     </Typography>
                   </CardContent>
-                  <CardActions>
-                    <Button
-                      size="small"
-                      color="primary"
-                      onClick={() => router.get(route('projects.show', project.id))}
-                    >
-                      Open
-                    </Button>
-                  </CardActions>
-                </Box>
+                </CardActionArea>
               </Card>
             </Grid>
           ))}
